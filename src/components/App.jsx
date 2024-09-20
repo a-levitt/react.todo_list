@@ -4,10 +4,17 @@ import React from "react";
 function App() {
 
   const [inputText, setInputText] = React.useState("");
+  const [items, setItems] = React.useState([]);
 
   function handleChange(event) {
       const newValue = event.target.value;
       setInputText(newValue);
+  }
+
+  function addItem() {
+      setItems((prevItems) => {
+          return [...prevItems, inputText]
+      });
   }
 
   return (
@@ -21,13 +28,13 @@ function App() {
             type="text"
             value={inputText}
         />
-        <button>
+        <button onClick={addItem}>
           <span>Add</span>
         </button>
       </div>
       <div>
         <ul>
-          <li>A Item</li>
+            { items.map(item =>  <li> {item} </li>) }
         </ul>
       </div>
     </div>

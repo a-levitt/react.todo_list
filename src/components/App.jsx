@@ -5,19 +5,12 @@ import InputArea from "./InputArea";
 
 function App() {
 
-  const [inputText, setInputText] = React.useState("");
   const [items, setItems] = React.useState([]);
 
-  function handleChange(event) {
-      const newValue = event.target.value;
-      setInputText(newValue);
-  }
-
-  function addItem() {
+  function addItem(inputText) {
       setItems((prevItems) => {
           return [...prevItems, inputText]
       });
-      setInputText("");
   }
 
   function deleteItem(id) {
@@ -36,14 +29,9 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input
-            onChange={handleChange}
-            type="text"
-            value={inputText}
+        <InputArea
+            onAdd={addItem}
         />
-        <button onClick={addItem}>
-          <span>Add</span>
-        </button>
       </div>
       <div>
         <ul>
@@ -53,7 +41,8 @@ function App() {
                     id={index}
                     text={item}
                     onChecked={deleteItem}
-                />) }
+                />
+            ) }
         </ul>
       </div>
     </div>

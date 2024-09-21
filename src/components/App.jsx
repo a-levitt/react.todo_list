@@ -1,4 +1,5 @@
 import React from "react";
+import ToDoItem from "./ToDoItem.jsx";
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
       </div>
       <div>
         <ul>
-            { items.map(item =>  <li> {item} </li>) }
+            { items.map(item =>  <ToDoItem text={item} />) }
         </ul>
       </div>
     </div>

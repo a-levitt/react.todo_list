@@ -1,5 +1,6 @@
 import React from "react";
 import ToDoItem from "./ToDoItem.jsx";
+import InputArea from "./InputArea";
 
 
 function App() {
